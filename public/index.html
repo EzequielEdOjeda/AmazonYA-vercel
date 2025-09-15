@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AmazonYA - Búsqueda Inteligente</title>
+  <meta name="description" content="Instala AmazonYA y encuentra productos en Amazon más rápido: búsquedas optimizadas, filtros inteligentes y navegación ágil." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://lh3.googleusercontent.com/VZs_HYuv12NqrV-kLaOv604BMzJ6uac_HH19KL-eKuGs3aqQxBrejZLQvBDePrRwi5GwubAlMt_c56e_B-BMNoKC_A=s60" type="image/x-icon">
+  <style>
+    :root{--accent:#FF9900;--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--glass: rgba(255,255,255,0.04);}
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{font-family:Inter,system-ui,Segoe UI,Arial; margin:0; background:linear-gradient(180deg,#071026 0%, #071935 100%); color:#e6eef8; -webkit-font-smoothing:antialiased;}
+    .container{max-width:1100px;margin:40px auto;padding:24px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+    .brand{display:flex;align-items:center;gap:12px;}
+    .logo{width:52px;height:52px;border-radius:50%;background:url("https://lh3.googleusercontent.com/VZs_HYuv12NqrV-kLaOv604BMzJ6uac_HH19KL-eKuGs3aqQxBrejZLQvBDePrRwi5GwubAlMt_c56e_B-BMNoKC_A=s60") no-repeat center/cover,#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    h1{font-size:28px;margin:0;}
+    p.lead{color:var(--muted);margin:6px 0 18px;}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start;}
+    .card{background:var(--card);padding:22px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03);}
+    .cta{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;font-weight:600;text-decoration:none;transition:all 0.2s ease;}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff7a00);color:#08101a;}
+    .btn-primary:hover{transform: scale(1.05); box-shadow: 0 6px 20px rgba(255,153,0,0.4);}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);color:#e6eef8;background:transparent;}
+    .btn-ghost:hover{background:rgba(255,255,255,0.05);}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+    .feature{padding:14px;border-radius:10px;background:var(--glass);color:#eaf5ff;}
+    .feature h4{margin:6px 0 4px;}
+    .muted{color:var(--muted);font-size:14px;}
+    .video{position:relative;border-radius:12px;overflow:hidden;background:#000;height:260px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+    .video iframe{width:100%;height:100%;border:0;pointer-events:none;}
+    .video-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;}
+    .how{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;}
+    .testimonials{margin-top:18px;display:flex;flex-direction:column;gap:10px;}
+    blockquote{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:10px;border-left:4px solid rgba(255,153,0,0.9);font-style:italic;}
+    footer{margin-top:34px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+    
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr;}
+      .features{grid-template-columns:1fr 1fr;}
+      .how{grid-template-columns:1fr;}
+    }
+    @media(max-width:600px){
+      .container{padding:16px;}
+      h1{font-size:22px;}
+      .features{grid-template-columns:1fr;}
+      .cta{flex-direction:column;align-items:stretch;}
+      .btn{width:100%;justify-content:center;}
+      .video{height:200px;}
+    }
+    @media(max-width:400px){
+      .video{height:180px;}
+      .card{padding:16px;}
+      .muted, p.lead{font-size:13px;}
+      .hero{gap:16px;}
+    }
+	/* HEADER RESPONSIVO */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap; /* permite que los elementos bajen a otra línea */
+}
+
+@media(max-width:600px){
+  header .brand {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  header nav {
+    flex: 1 1 100%; /* ocupa toda la línea debajo de la marca en móviles */
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  }
+  .muted {
+    text-align:center;
+	justify-content:center;
+	flex: 1 1 100%;
+  }
+  strong {
+    display: block;
+    text-align: center;
+	margin: 4px;
+}
+  header div {
+  margin-top: 3px;
+  }
+  header .brand h1 {
+    font-size: 22px;
+  }
+  header .brand .muted {
+    font-size: 13px;
+  }
+}
+
+/* FOOTER RESPONSIVO */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* permite que los elementos bajen a otra línea */
+  gap: 8px;
+}
+
+@media(max-width:600px){
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+  }
+  footer a {
+	margin-top: -4px;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>AmazonYA — Búsqueda Inteligente</h1>
+          <div class="muted">Encuentra productos en Amazon más rápido. Extensión para Chrome.</div>
+        </div>
+      </div>
+      <nav>
+        <a class="btn btn-ghost" href="https://chromewebstore.google.com/detail/amazonya-b%C3%BAsqueda-intelig/fmeonadjdckdppgnkjhblnmfdaenmcjm" target="_blank" rel="noopener">Ver en Chrome Web Store</a>
+      </nav>
+    </header>
+<br>
+    <main class="hero">
+      <div>
+        <div class="card">
+          <p class="lead">¿Cansado de perder tiempo entre filtros en Amazon? AmazonYA convierte tu búsqueda en un atajo inteligente: resultados organizados, filtros rápidos y navegación optimizada.</p>
+          <div class="features" role="list">
+            <div class="feature" role="listitem">
+              <strong>Buscar más rápido</strong>
+              <div class="muted">Ahorra tiempo y encuentra lo que buscas en segundos.</div>
+            </div>
+            <div class="feature" role="listitem">
+              <strong>Filtros inteligentes</strong>
+              <div class="muted">Resultados relevantes sin tanto clic.</div>
+            </div>
+            <div class="feature" role="listitem">
+              <strong>Compatible</strong>
+              <div class="muted">Funciona en todas las categorías de Amazon.</div>
+            </div>
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/amazonya-b%C3%BAsqueda-intelig/fmeonadjdckdppgnkjhblnmfdaenmcjm" target="_blank" rel="noopener">Instalar ahora</a>
+            <a class="btn btn-ghost" href="#how">Cómo funciona</a>
+          </div>
+          <div class="muted" style="margin-top:12px;font-size:13px">Gratis y en Español (Latinoamérica)</div>
+        </div>
+
+        <section id="how" class="how">
+          <div class="card">
+            <h3 style="margin-top:0">Cómo usar</h3>
+            <ol style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>Instala la extensión en Chrome.</li>
+              <li>Escribe o selecciona el producto que quieras buscar.</li>
+              <li>AmazonYA optimiza la búsqueda y te muestra las mejores opciones.</li>
+            </ol>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">Beneficios rápidos</h3>
+            <ul style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>Más rapidez en tus búsquedas.</li>
+              <li>Menos clics, más resultados relevantes.</li>
+              <li>Ideal para comparar y decidir rápido.</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="testimonials">
+          <blockquote>"Con AmazonYA encuentro lo que quiero en segundos. Imprescindible para mis compras."</blockquote>
+          <blockquote>"Me ahorra muchísimo tiempo y mis búsquedas son mucho más precisas."</blockquote>
+          <blockquote>"Excelente extensión, súper recomendable para cualquier comprador de Amazon."</blockquote>
+        </div>
+      </div>
+
+      <aside style="width:100%; text-align:center;">
+        <div class="card">
+          <div class="video" id="videoThumbnail">
+            <iframe 
+              src="https://www.youtube.com/embed/wQk7vXk9kXM" 
+              title="AmazonYA - Búsqueda Inteligente con IA" 
+              allowfullscreen>
+            </iframe>
+            <div class="video-overlay"></div>
+          </div>
+          <div style="gap:10px;margin-top:12px">
+            <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/amazonya-b%C3%BAsqueda-intelig/fmeonadjdckdppgnkjhblnmfdaenmcjm" target="_blank" rel="noopener">Instalar ahora</a>		
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div style="padding-top: 10px;">© 2025 AmazonYA • Hecho para hacer tus compras más rápidas</div>
+      <div><a href="https://chromewebstore.google.com/detail/amazonya-b%C3%BAsqueda-intelig/fmeonadjdckdppgnkjhblnmfdaenmcjm"
+   target="_blank" rel="noopener"
+   style="color: var(--accent); text-decoration: none;"
+   onmouseover="this.style.color='purple';"
+   onmouseout="this.style.color='var(--accent)';">
+   Instalar en Chrome
+</a>
+</div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+    <div style="position:relative; width:90%; max-width:900px; aspect-ratio:16/9;">
+      <iframe id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; border-radius:12px;"></iframe>
+      <button id="closeModal" style="position:absolute; top:-20px; right:-20px; background:#fff; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; font-weight:bold;">✕</button>
+    </div>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const thumbnailOverlay = document.querySelector('.video-overlay');
+  const modal = document.getElementById('videoModal');
+  const modalVideo = document.getElementById('modalVideo');
+  const closeModal = document.getElementById('closeModal');
+
+  const videoURL = "https://www.youtube.com/embed/wQk7vXk9kXM?autoplay=1";
+
+  thumbnailOverlay.addEventListener('click', () => {
+    modalVideo.src = videoURL;
+    modal.style.display = "flex";
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.style.display = "none";
+    modalVideo.src = "";
+  });
+
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal){
+      modal.style.display = "none";
+      modalVideo.src = "";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnHow = document.querySelector('.btn-ghost[href="#how"]');
+
+  // URL del primer video con inicio en el segundo 45
+  const firstVideoURL = "https://www.youtube.com/embed/lLgr5FI4oaI?start=45";
+
+  const modal = document.getElementById('videoModal');
+  const modalVideo = document.getElementById('modalVideo');
+  const closeModal = document.getElementById('closeModal');
+
+  btnHow.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalVideo.src = firstVideoURL; // carga el video correcto en el modal
+    modal.style.display = "flex"; // muestra el modal
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.style.display = "none";
+    modalVideo.src = ""; // pausa y limpia el video
+  });
+
+  // cerrar modal al hacer clic fuera del video
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal){
+      modal.style.display = "none";
+      modalVideo.src = "";
+    }
+  });
+});
+</script>
+
+</body>
+</html>
