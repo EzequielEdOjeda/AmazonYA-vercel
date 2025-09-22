@@ -1,6 +1,6 @@
-# AmazonYA — Búsqueda Inteligente
+# AmazonYa — Búsqueda Inteligente
 
-AmazonYA es una **extensión para Chrome** que optimiza tus búsquedas en Amazon, permitiéndote encontrar productos más rápido mediante filtros inteligentes y navegación ágil.
+AmazonYa es una **extensión para Chrome** que optimiza tus búsquedas en Amazon, permitiéndote encontrar productos más rápido mediante filtros inteligentes y navegación ágil.
 
 ---
 
@@ -27,7 +27,7 @@ También puedes instalar la extensión directamente desde la **Chrome Web Store*
 
 1. Instala la extensión en Chrome.  
 2. Escribe o selecciona el producto que quieras buscar.  
-3. AmazonYA optimiza la búsqueda y muestra las mejores opciones.  
+3. AmazonYa optimiza la búsqueda y muestra las mejores opciones.  
 
 ---
 
